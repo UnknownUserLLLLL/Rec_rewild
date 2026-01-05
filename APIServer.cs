@@ -141,7 +141,7 @@ namespace server
 						}
                         if (Url.StartsWith("roomkeys/"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (rawUrl.StartsWith("/account/bulk"))
                         {
@@ -164,7 +164,7 @@ namespace server
                         }
                         if (Url == "players/v1/list")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "config/v1/amplitude")
 						{
@@ -181,11 +181,11 @@ namespace server
 						}
 						if (Url == "//api/chat/v2/myChats?mode=0&count=50")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "messages/v2/get")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "gameconfigs/v1/all")
 						{
@@ -206,15 +206,15 @@ namespace server
 						}
                         if (Url.StartsWith("relationships/v1/bulkignoreplatformuser"))
 						{
-							s = "[]";
+							s = "{}";
 						}
                         if (Url.StartsWith("storefronts/v3/giftdropstore"))
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url.StartsWith("storefronts/v3/balance/"))
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "avatar/v2")
 						{
@@ -222,7 +222,7 @@ namespace server
 						}
 						if (Url == "avatar/v2/saved")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "avatar/v2/set")
 						{
@@ -244,7 +244,7 @@ namespace server
 						}
                         if (rawUrl.Contains("/club/"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url.Contains("storefronts/v3"))
                         {
@@ -252,7 +252,7 @@ namespace server
                         }
                         if (rawUrl.Contains("/thread"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
 						
 
@@ -263,11 +263,11 @@ namespace server
 
                         if (rawUrl == "//api/chat/v2/myChats?mode=0&count=50")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "playersubscriptions/v1/my")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "avatar/v3/items")
 						{
@@ -284,7 +284,7 @@ namespace server
                         }
                         if (rawUrl.Contains("quickPlay/v1/getandclear"))
                         {
-							//s = BracketResponse;
+							//s = "{}";
 							
                             s = JsonConvert.SerializeObject((object)new QuickPlayResponseDTO()
                             {
@@ -299,7 +299,7 @@ namespace server
 						}
 						if (Url == "avatar/v1/saved")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "consumables/v1/getUnlocked")
 						{
@@ -311,7 +311,7 @@ namespace server
                         }
                         if (Url == "avatar/v2/gifts")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "storefronts/v2/2")
 						{
@@ -319,7 +319,7 @@ namespace server
 						}
 						if (Url == "storefronts/v1/allGiftDrops/2")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "objectives/v1/myprogress")
 						{
@@ -332,7 +332,7 @@ namespace server
 						}
 						if (Url == "rooms/v2/myrooms")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "rooms/v2/baserooms")
 						{
@@ -340,11 +340,11 @@ namespace server
 						}
 						if (Url == "rooms/v1/mybookmarkedrooms")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "rooms/v1/myRecent?skip=0&take=10")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "events/v3/list")
 						{
@@ -376,11 +376,11 @@ namespace server
 						}
                         if (Url == "avatar/v1/defaultunlocked")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url == "avatar/v3/saved")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "checklist/v1/current")
 						{
@@ -388,7 +388,7 @@ namespace server
 						}
 						if (Url == "presence/v1/setplayertype")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "challenge/v1/getCurrent")
 						{
@@ -396,7 +396,7 @@ namespace server
 						}
 						if (Url == "rooms/v1/featuredRoomGroup")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
 						if (Url == "rooms/v1/clone")
 						{
@@ -468,29 +468,29 @@ namespace server
                         //rooms/createdby/me
                         if (rawUrl == "/player/statusvisibility")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url == "PlayerReporting/v1/voteToKickReasons")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url.StartsWith("roomconsumables/v1/roomConsumable/"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
 
                         if (Url.StartsWith("roomcurrencies/v1/currencies"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url.StartsWith("storefronts/v4/balance/"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         //
                         if (Url == "gamerewards/v1/pending")
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
                         if (Url.StartsWith("playerReputation/v2/"))
                         {
@@ -502,7 +502,7 @@ namespace server
                         }
                         if (rawUrl.Contains("/roomcurrencies/v1/getAllBalances"))
                         {
-							s = BracketResponse;
+							s = "{}";
                         }
                         ///roomcurrencies/v1/getAllBalances
                         if (Url == "rooms/v1/featuredRoomGroup")
@@ -515,11 +515,11 @@ namespace server
 						}
 						if (Url.StartsWith("rooms/v2/instancedetails"))
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
                         if (rawUrl.StartsWith("/subscription"))
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         
                         if (rawUrl.StartsWith("/account/") && rawUrl.EndsWith("/bio"))
@@ -534,23 +534,23 @@ namespace server
 
                         if (Url == "announcement/v1/get")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (rawUrl == "/rooms/createdby/me")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url == "announcement/v1/get")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url == "communityboard/v2/current")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url == "communityboard/v1/current")
                         {
-                            s = BracketResponse;
+                            s = "{}";
                         }
                         if (Url.StartsWith("rooms/v2/search?value="))
 						{
@@ -584,11 +584,11 @@ namespace server
 
 						if (Url.StartsWith("messages/v1/favoriteFriendOnlineStatus"))
 						{
-							s = BracketResponse;
+							s = "{}";
 						}
                         if (rawUrl.StartsWith("/announcements/v2/"))
                         {
-							s = BracketResponse;
+							s = "{}";
                         }
                         if (Url == "images/v1/slideshow")
 						{
