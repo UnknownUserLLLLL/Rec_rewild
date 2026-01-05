@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -61,7 +61,7 @@ namespace server
 				}
                 else if (rawUrl.StartsWith("/Community"))
                 {
-                    i = new WebClient().DownloadData("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/notfoundimage.jpg");
+                    i = new WebClient().DownloadData("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/notfoundimage.jpg");
                 }
                 else if (rawUrl.StartsWith("/Profile") || rawUrl.StartsWith("/profile"))
                 {
@@ -80,7 +80,7 @@ namespace server
 						Console.WriteLine("[ImageServer.cs] Image not found on img.rec.net. using Default Room Image");
 						try
 						{
-							i = new WebClient().DownloadData("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/notfoundimage.jpg");
+							i = new WebClient().DownloadData("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/notfoundimage.jpg");
 						}
 						catch
 						{
