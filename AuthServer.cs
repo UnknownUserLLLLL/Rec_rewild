@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -82,26 +82,7 @@ namespace server
 
                         else if (rawUrl == "/connect/token")
                         {
-                            if (APIServer.CachedversionID >= 20200000 - 1 && APIServer.CachedversionID <= 20200600 - 1)
-                            {
-                                s = tokenResponse;
-                            }
-                            else 
-                            { 
-                                temp1 = ClientSecurity.GenerateToken();
-                                Guid myuuid = Guid.NewGuid();
-                                temp2 = myuuid.ToString();
-                                /*s = JsonConvert.SerializeObject(new ClientSecurity.auth_token_data
-                                {
-                                    access_token = temp1,
-                                    error = "",
-                                    error_description = "",
-                                    key = "",
-                                    refresh_token = temp2,
-                                }.ToString());
-                                */
-                                s = "{\"access_token\":\"" + temp1 + "\",\"error_description\":\"\",\"error\":\"\",\"refresh_token\":\"" + temp2+"\",\"key\":\"\"}";
-                            }
+                            s = tokenResponse;
                             Thread.Sleep(100);
 
                         }
