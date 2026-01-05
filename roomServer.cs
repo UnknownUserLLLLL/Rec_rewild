@@ -82,7 +82,7 @@ namespace server
                         else if (rawUrl.StartsWith("/rooms/bulk?name="))
                         {
                             Console.WriteLine(rawUrl.Remove(0, 17) + ".txt");
-                            s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild_server_data/main/rooms/" + rawUrl.Remove(0, 17).ToLower() + ".txt");
+                            s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild_server_data/main/rooms/" + rawUrl.Remove(0, 17).ToLower() + ".txt");
                             //s = File.ReadAllText("SaveData\\Rooms\\1-bulk.txt");
                         }
                         else if (rawUrl.StartsWith("/rooms?name="))
@@ -95,7 +95,7 @@ namespace server
                             stringSeparators = new string[] { "?include=301" };
                             subs = subs[0].Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
                             Console.WriteLine(subs[0] + ".txt");
-                            s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild_server_data/main/rooms_name/" + subs[0].ToLower() + ".txt");
+                            s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild_server_data/main/rooms_name/" + subs[0].ToLower() + ".txt");
                             if (subs[0].ToLower() == "orientation") 
                             {
                                 GameSessions.gamesessionid = 20161L;
@@ -143,115 +143,25 @@ namespace server
                             subs = subs[0].Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
                             temp1 = subs[0];
                             temp2 = GameSessions.FindRoomid(ulong.Parse(temp1));
-                            if (temp2 != "")
+                            if (temp1 == "1")
                             {
-
+                                s = JsonConvert.SerializeObject(vaultgamesesh.c00005d.rooms_find_list(1).Room);
+                            }
+                            else if (temp2 != "")
+                            {
                                 Console.WriteLine("found room name: " + temp2 + " using room id: " + temp1);
-
-
-                                string json;
-
-                                if (temp1 == "1")
-                                {
-                                    // For RoomId 1, use the official RecNet schema as a template so the client
-                                    // deserializes it correctly, then patch it to look like DormRoom.
-                                    try
-                                    {
-                                        json = new WebClient().DownloadString("https://rooms.rec.net/rooms/1?include=1325");
-                                    }
-                                    catch
-                                    {
-                                        // Fallback to local DormRoom definition if RecNet is unreachable.
-                                        json = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild_server_data/main/rooms_name/dormroom.txt");
-                                    }
-                                }
-                                else
-                                {
-                                    json = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild_server_data/main/rooms_name/" + temp2.ToLower() + ".txt");
-                                }
-
+                                string json = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild_server_data/main/rooms_name/" + temp2.ToLower() + ".txt");
                                 try
                                 {
                                     JObject obj = JObject.Parse(json);
                                     int roomIdValue = Convert.ToInt32(temp1);
                                     obj["RoomId"] = roomIdValue;
-
-                                    if (roomIdValue == 1)
-                                    {
-                                        // Make the template look like the 2021 DormRoom the client expects.
-                                        obj["Name"] = "DormRoom";
-                                        obj["Description"] = "Your private room";
-                                        obj["ImageName"] = "DormRoom.png";
-                                        obj["IsDorm"] = true;
-                                        obj["MaxPlayerCalculationMode"] = 1;
-                                        obj["MaxPlayers"] = 4;
-
-                                        JToken dormSubRoomsToken = obj["SubRooms"];
-                                        if (dormSubRoomsToken != null && dormSubRoomsToken.Type == JTokenType.Array)
-                                        {
-                                            foreach (JToken sub in (JArray)dormSubRoomsToken)
-                                            {
-                                                sub["RoomId"] = roomIdValue;
-                                                if (sub["UnitySceneId"] != null && sub["UnitySceneId"].Type == JTokenType.String)
-                                                {
-                                                    sub["UnitySceneId"] = "76d98498-60a1-430c-ab76-b54a29b7a163";
-                                                }
-                                                if (sub["MaxPlayers"] != null && sub["MaxPlayers"].Type == JTokenType.Integer)
-                                                {
-                                                    sub["MaxPlayers"] = 4;
-                                                }
-                                                if (sub["Accessibility"] != null && sub["Accessibility"].Type == JTokenType.Integer)
-                                                {
-                                                    sub["Accessibility"] = 2;
-                                                }
-                                                if (sub["IsSandbox"] != null && sub["IsSandbox"].Type == JTokenType.Boolean)
-                                                {
-                                                    sub["IsSandbox"] = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        JToken subRoomsToken = obj["SubRooms"];
-                                        if (subRoomsToken != null && subRoomsToken.Type == JTokenType.Array)
-                                        {
-                                            foreach (JToken sub in (JArray)subRoomsToken)
-                                            {
-                                                sub["RoomId"] = roomIdValue;
-                                                if (sub["SubRoomId"] != null && sub["SubRoomId"].Type == JTokenType.Integer && (int)sub["SubRoomId"] == 2 && roomIdValue == 1)
-                                                {
-                                                    sub["SubRoomId"] = 1;
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    s = obj.ToString(Formatting.None);
-                                }
-                                catch
-                                {
-                                    s = json;
-                                }
-
-                            }
-                            else 
-                            {
-                                string json = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild_server_data/main/rooms_name/dormroom.txt");
-                                try
-                                {
-                                    JObject obj = JObject.Parse(json);
-                                    obj["RoomId"] = 1;
                                     JToken subRoomsToken = obj["SubRooms"];
                                     if (subRoomsToken != null && subRoomsToken.Type == JTokenType.Array)
                                     {
                                         foreach (JToken sub in (JArray)subRoomsToken)
                                         {
-                                            sub["RoomId"] = 1;
-                                            if (sub["SubRoomId"] != null && sub["SubRoomId"].Type == JTokenType.Integer && (int)sub["SubRoomId"] == 2)
-                                            {
-                                                sub["SubRoomId"] = 1;
-                                            }
+                                            sub["RoomId"] = roomIdValue;
                                         }
                                     }
                                     s = obj.ToString(Formatting.None);
@@ -260,8 +170,11 @@ namespace server
                                 {
                                     s = json;
                                 }
-
+                            }
+                            else
+                            {
                                 Console.WriteLine("can't find room id : " + temp1);
+                                s = JsonConvert.SerializeObject(vaultgamesesh.c00005d.rooms_find_list(1));
                             }
 
 
