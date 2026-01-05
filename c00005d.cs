@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -72,19 +72,140 @@ namespace vaultgamesesh
 			return c00005d.f000050["DormRoom"];
 		}
 
-        public static c00005d.rooms_details rooms_find_list(int p0)
+        public static RoomDetails rooms_find_list(int p0)
         {
-            foreach (KeyValuePair<string, c00005d.rooms_details> keyValuePair in c00005d.rooms_details_list)
+            if (p0 == 1)
             {
-                bool flag = keyValuePair.Value.RoomId == (ulong)((long)p0);
-                bool flag2 = flag;
-                if (flag2)
+                return new RoomDetails
                 {
-                    return keyValuePair.Value;
-                }
+                    Room = new RoomData
+                    {
+                        RoomId = 1,
+                        AllowsJuniors = true,
+                        CustomRoomWarning = "",
+                        DisableMicAutoMute = true,
+                        IsDormRoom = true,
+                        RoomWarningMask = 0,
+                        WarningMask = 0,
+                        Name = "DormRoom",
+                        Description = "A private room.",
+                        CreatorPlayerId = 10000000,
+                        ImageName = "DefaultRoomImage.jpg",
+                        State = 0,
+                        Accessibility = 1,
+                        SupportsLevelVoting = false,
+                        IsAGRoom = true,
+                        CloningAllowed = false,
+                        SupportsScreens = true,
+                        SupportsWalkVR = true,
+                        SupportsTeleportVR = true,
+                        ReplicationId = null,
+                        ReleaseStatus = 0,
+                        CreatedAt = DateTime.Parse("0001-01-01T00:00:00")
+                    },
+                    Roles = new List<Role>
+                    {
+                        new Role { AccountId = 10000000, InvitedRole = 0, Role = 255 }
+                    },
+                    Stats = new Stats
+                    {
+                        CheerCount = 1,
+                        FavoriteCount = 1,
+                        VisitCount = 1,
+                        RoomId = 1,
+                        VisitorCount = 1
+                    },
+                    RoomSceneLocationId = "76d98498-60a1-430c-ab76-b54a29b7a163",
+                    SubRooms = new List<SubRoom>
+                    {
+                        new SubRoom
+                        {
+                            Accessibility = 1,
+                            DataBlob = "",
+                            IsSandbox = false,
+                            MaxPlayers = 20,
+                            RoomId = 1,
+                            SubRoomId = 1,
+                            UnitySceneId = "76d98498-60a1-430c-ab76-b54a29b7a163",
+                            CanMatchmakeInto = true,
+                            DataBlobName = "",
+                            DataModifiedAt = DateTime.Now,
+                            RoomSceneId = 1,
+                            RoomSceneLocationId = "76d98498-60a1-430c-ab76-b54a29b7a163",
+                            Name = "home"
+                        }
+                    },
+                    Scenes = new List<Scene>
+                    {
+                        new Scene
+                        {
+                            Accessibility = 1,
+                            DataBlob = "",
+                            IsSandbox = false,
+                            MaxPlayers = 20,
+                            RoomId = 1,
+                            SubRoomId = 1,
+                            UnitySceneId = "76d98498-60a1-430c-ab76-b54a29b7a163",
+                            CanMatchmakeInto = true,
+                            DataBlobName = "",
+                            DataModifiedAt = DateTime.Now,
+                            RoomSceneId = 1,
+                            RoomSceneLocationId = "76d98498-60a1-430c-ab76-b54a29b7a163",
+                            Name = "home"
+                        }
+                    },
+                    CoOwners = new List<object>(),
+                    InvitedCoOwners = new List<object>(),
+                    Hosts = new List<object>(),
+                    InvitedHosts = new List<object>(),
+                    Moderators = new List<object>(),
+                    InvitedModerators = new List<object>(),
+                    Tags = new List<Tag> { new Tag { Tag = "rro", Type = 2 } },
+                    RoomId = 1,
+                    AllowsJuniors = false,
+                    CustomRoomWarning = null,
+                    DisableMicAutoMute = true,
+                    IsDormRoom = false,
+                    RoomWarningMask = 0,
+                    WarningMask = 0,
+                    Name = "DormRoom",
+                    Description = "A private room.",
+                    CreatorPlayerId = 0,
+                    ImageName = "DefaultRoomImage.jpg",
+                    State = 0,
+                    Accessibility = 2,
+                    SupportsLevelVoting = false,
+                    IsAGRoom = true,
+                    CloningAllowed = false,
+                    SupportsScreens = true,
+                    SupportsWalkVR = true,
+                    SupportsTeleportVR = true,
+                    ReplicationId = "DormRoom",
+                    ReleaseStatus = 2,
+                    CreatedAt = DateTime.Now,
+                    DisableRoomComments = true,
+                    EncryptVoiceChat = true,
+                    IsRRO = true,
+                    LoadScreens = new List<object>(),
+                    MaxPlayerCalculationMode = 0,
+                    MaxPlayers = 20,
+                    SupportsMobile = true,
+                    SupportsQuest2 = true,
+                    MinLevel = 0,
+                    PromoExternalContent = new List<object>(),
+                    PromoImages = new List<object>(),
+                    SupportsJuniors = true,
+                    SupportsVRLow = true,
+                    CustomWarning = "",
+                    DataBlob = null,
+                    CreatorAccountId = 10000000,
+                    IsDorm = true,
+                    CheerCount = 1,
+                    VisitCount = 1,
+                    FavoriteCount = 1
+                };
             }
-
-            return c00005d.rooms_details_list["DormRoom"];
+            return null; // Or handle other room IDs as needed
         }
 
         //rooms_details
@@ -350,8 +471,7 @@ namespace vaultgamesesh
 		};
 
 		// Token: 0x04000009 RID: 9
-		public static Dictionary<string, c00005d.rooms_details> rooms_details_list = new Dictionary<string, c00005d.rooms_details>
-		{
+				{
 			{
 				"DormRoom",
 				new c00005d.rooms_details
