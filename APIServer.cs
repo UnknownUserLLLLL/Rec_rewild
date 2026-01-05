@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -498,7 +498,7 @@ namespace server
                         }
                         if (rawUrl == "/config/LoadingScreenTipData")
                         {
-							s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/loadingscreen.json"); ;
+							s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/loadingscreen.json"); ;
                         }
                         if (rawUrl.Contains("/roomcurrencies/v1/getAllBalances"))
                         {
@@ -507,11 +507,11 @@ namespace server
                         ///roomcurrencies/v1/getAllBalances
                         if (Url == "rooms/v1/featuredRoomGroup")
 						{
-							s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/dormslideshow.txt");
+							s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/dormslideshow.txt");
 						}
 						if (Url.StartsWith("rooms/v1/hot"))
 						{
-							s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/hotrooms.txt");
+							s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/hotrooms.txt");
 						}
 						if (Url.StartsWith("rooms/v2/instancedetails"))
 						{
@@ -592,7 +592,7 @@ namespace server
                         }
                         if (Url == "images/v1/slideshow")
 						{
-							s = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/rcslideshow.txt");
+							s = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/rcslideshow.txt");
 						}
 
                         if (s.Length > 400)
