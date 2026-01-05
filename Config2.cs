@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -68,7 +68,7 @@ namespace api
 			
 			return JsonConvert.SerializeObject(new Config2
 			{
-				MessageOfTheDay = new WebClient().DownloadString("https://raw.githubusercontent.com/wiiboi69/Rec_rewild/master/Update/motd.txt"),
+				MessageOfTheDay = new WebClient().DownloadString("https://raw.githubusercontent.com/UnknownUserLLLLL/Rec_rewild/master/Update/motd.txt"),
 				CdnBaseUri = "http://localhost:20212/",
                 ShareBaseUrl = "http://localhost:20212/",
                 LevelProgressionMaps = new List<LevelProgressionEntry>
